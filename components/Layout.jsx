@@ -7,7 +7,7 @@ function Layout({ children }) {
     <div className="layout">
         <Script src='libs/particles/particles.js' defer />
         <Head>
-          <title>Next.js Template</title>
+          <title>Horizontal Parallax</title>
         </Head>
         <header></header>
         <main className="main-container">
