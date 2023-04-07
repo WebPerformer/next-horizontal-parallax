@@ -9,16 +9,10 @@ import logo from "public/img/logo/logo.png"
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Parallax, Mousewheel, Navigation } from "swiper"
+import { Parallax, Mousewheel } from "swiper"
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 export default function Home() {
-
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
-
   return (
     <div className="main-content">
       <div className="header">
@@ -37,16 +31,8 @@ export default function Home() {
           sensitivity: 2.4
         }}
         grabCursor={true}
-        navigation={{
-          prevEl: navigationPrevRef.current,
-          nextEl: navigationNextRef.current,
-        }}
         loop={true}
-        modules={[Parallax, Mousewheel, Navigation]}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = navigationPrevRef.current;
-          swiper.params.navigation.nextEl = navigationNextRef.current;
-        }}
+        modules={[Parallax, Mousewheel]}
       >
         <SwiperSlide>
           <div className="slider__layer" data-swiper-parallax="35%" style={{ backgroundImage: `url("img/screen-1/layer-back.jpg")` }}></div>
@@ -69,8 +55,6 @@ export default function Home() {
           <div className="slider__layer" data-swiper-parallax="25%" style={{ backgroundImage: `url("img/screen-3/layer-front.png")` }}></div>
         </SwiperSlide>
       </Swiper>
-      <div className="prev" ref={navigationPrevRef}><CgArrowLongLeftL/></div>
-      <div className="next" ref={navigationNextRef}><CgArrowLongRightL/></div>
     </div>
   )
 }
